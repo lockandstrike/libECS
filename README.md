@@ -40,13 +40,13 @@ int main()
   auto entity2 = manager.create();
   
   //Add a component to the entity you've just created and retrieve it's Handle (fancy pointer wrapper)
-  //The <pre><i>add</i></pre> function takes as arguments the arguments of whichever constructor the type provides.
+  //The add function takes as arguments the arguments of whichever constructor the type provides.
   Handle<Position> position1 = entity1->add<Position>(1.0f, 1.0f);
   //Less verbose alternative
   auto position2 = entity2->add<Position>(2.0f, 3.0f);
   
   //Call a function on every entity that has a Component of type Position that the EntityManager owns.
-  //The <pre><i>each</i></pre> function takes as argument a function pointer to run on every entity that has the required type
+  //The each function takes as argument a function pointer to run on every entity that has the required type
   manager.each<Position>(doStuff);
   //Alternatively, it also supports lambdas
   manager.each<Position>([](Handle<Position> _position)
@@ -54,7 +54,7 @@ int main()
                             _position->y += 1.0f;
                          });
   /*
-  The use of the <pre><i>each</i></pre> function requires a specific function prototype:
+  The use of the each function requires a specific function prototype:
     void function(Handle<T> _t, Handle<Args> _args...);
       |                ||
      The function must have void return type
