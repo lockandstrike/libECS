@@ -12,8 +12,6 @@
 *   Entity is a wrapper for the id which will provide some aditional functionality
 *   to check the validity and state of the components associated with it and help
 *   with comunication between components/entities.
-*
-*   TODO: Provide extra functionality
 */
 
 class Entity
